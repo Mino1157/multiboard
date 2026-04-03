@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	"mybatis-3-mapper.dtd">
 
-<mapper namespace="com.example.myapp.board.dao.IBoardCategoryRepository">
+<mapper namespace="com.example.multiboard.board.dao.IBoardCategoryRepository">
 
-	<select id="selectAllCategory" resultType="com.example.myapp.board.model.BoardCategory">
+	<select id="selectAllCategory" resultType="com.example.multiboard.board.model.BoardCategory">
 	<![CDATA[
 		SELECT 
 			category_id				AS categoryId, 
@@ -23,7 +23,7 @@
 	]]>
 	</select> 
 
-	<insert id="insertNewCategory" parameterType="com.example.myapp.board.model.BoardCategory">
+	<insert id="insertNewCategory" parameterType="com.example.multiboard.board.model.BoardCategory">
 	<![CDATA[
 		INSERT INTO board_category
 			(category_id, category_name, category_description)
@@ -32,7 +32,7 @@
 	]]>
 	</insert>
 	
-	<update id="updateCategory" parameterType="com.example.myapp.board.model.BoardCategory">
+	<update id="updateCategory" parameterType="com.example.multiboard.board.model.BoardCategory">
 	<![CDATA[
 		UPDATE board_category
 		SET

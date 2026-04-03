@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    "mybatis-3-mapper.dtd">
 
-<mapper namespace="com.example.myapp.board.dao.IBoardRepository">
+<mapper namespace="com.example.multiboard.board.dao.IBoardRepository">
 
-	<select id="selectArticleListByCategory" parameterType="hashmap" resultType="com.example.myapp.board.model.Board">
+	<select id="selectArticleListByCategory" parameterType="hashmap" resultType="com.example.multiboard.board.model.Board">
 	<![CDATA[
 		SELECT 
 			board_id 		AS "boardId", 
@@ -32,7 +32,7 @@
 	]]>
 	</select>
 	
-<!-- 	<select id="selectArticleListByCategory" parameterType="hashmap" resultType="com.example.myapp.board.model.Board">
+<!-- 	<select id="selectArticleListByCategory" parameterType="hashmap" resultType="com.example.multiboard.board.model.Board">
 	<![CDATA[
 	SELECT 
 	    board_id 				AS "boardId", 
@@ -53,7 +53,7 @@
 	]]>
 	</select> -->
 	
-	<select id="selectArticle" parameterType="int" resultType="com.example.myapp.board.model.Board">
+	<select id="selectArticle" parameterType="int" resultType="com.example.multiboard.board.model.Board">
 	<![CDATA[
 		SELECT 
 			board.board_id				AS "boardId", 
@@ -99,7 +99,7 @@
 	]]>
 	</select>
 		
-	<insert id="insertArticle" parameterType="com.example.myapp.board.model.Board">
+	<insert id="insertArticle" parameterType="com.example.multiboard.board.model.Board">
 	<![CDATA[
 		INSERT INTO board 
 			(board_id, category_id, writer, email, password, title, content, write_date, master_id, reply_number, reply_step)  
@@ -108,7 +108,7 @@
 	]]>
 	</insert>
 	
-	<insert id="insertFileData" parameterType="com.example.myapp.board.model.BoardUploadFile">
+	<insert id="insertFileData" parameterType="com.example.multiboard.board.model.BoardUploadFile">
 	<![CDATA[
 		INSERT INTO board_upload_file 
 			(file_id, board_id, file_name, file_size, file_content_type, file_data) 
@@ -117,7 +117,7 @@
 	]]>
 	</insert>
 	
-	<select id="getFile" parameterType="int" resultType="com.example.myapp.board.model.BoardUploadFile">
+	<select id="getFile" parameterType="int" resultType="com.example.multiboard.board.model.BoardUploadFile">
 	<![CDATA[
 		SELECT 
 			file_id				AS "fileId", 
@@ -142,7 +142,7 @@
 	]]>
 	</insert>
 
-	<insert id="replyArticle" parameterType="com.example.myapp.board.model.Board">
+	<insert id="replyArticle" parameterType="com.example.multiboard.board.model.Board">
 	<![CDATA[
 		INSERT INTO board 
 			(board_id, category_id, writer, email, password, title, content, write_date, master_id, reply_number, reply_step)  
@@ -159,7 +159,7 @@
 	]]>
 	</select>
 	
-	<update id="updateArticle" parameterType="com.example.myapp.board.model.Board">
+	<update id="updateArticle" parameterType="com.example.multiboard.board.model.Board">
 	<![CDATA[
 		UPDATE board 
 		SET 
@@ -170,7 +170,7 @@
 	]]>
 	</update>
 
-	<update id="updateFileData" parameterType="com.example.myapp.board.model.BoardUploadFile">
+	<update id="updateFileData" parameterType="com.example.multiboard.board.model.BoardUploadFile">
 	<![CDATA[
 	 	UPDATE board_upload_file 
 	 	SET 
@@ -180,7 +180,7 @@
 	]]>
 	</update>
 	
-	<select id="selectDeleteArticle" parameterType="int" resultType="com.example.myapp.board.model.Board">
+	<select id="selectDeleteArticle" parameterType="int" resultType="com.example.multiboard.board.model.Board">
 	<![CDATA[
 		SELECT 
 			category_id		AS "categoryId", 
@@ -240,7 +240,7 @@
 	]]>
 	</select> 
 
-	<select id="searchListByContentKeyword" parameterType="hashmap" resultType="com.example.myapp.board.model.Board">
+	<select id="searchListByContentKeyword" parameterType="hashmap" resultType="com.example.multiboard.board.model.Board">
 	<![CDATA[
 		SELECT 
 			board_id 			AS "boardId", 
