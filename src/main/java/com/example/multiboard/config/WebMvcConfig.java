@@ -11,6 +11,7 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
+import com.example.multiboard.common.filter.LoginInterceptor;
 
 
 @Configuration
@@ -39,9 +40,20 @@ public class WebMvcConfig implements WebMvcConfigurer {
 		return lci;
 	}
 	
+	@Bean
+	LoginInterceptor loginInterceptor()	{
+		return new LoginInterceptor();
+	}
+	
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
 		registry.addInterceptor(localeChangeInterceptor());
+		registry.addInterceptor(loginInterceptor())
+			.addPathPatterns("/file/**")
+			.addPathPatterns("/board/write/**")
+			.addPathPatterns("/board/update/**")
+			.addPathPatterns("/board/reply/**")
+			.addPathPatterns("/board/delete/**");
 	}
 
 }
