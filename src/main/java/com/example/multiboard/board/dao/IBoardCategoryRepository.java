@@ -12,7 +12,7 @@ import com.example.multiboard.board.model.BoardCategory;
 public interface IBoardCategoryRepository {
 	int selectMaxCategoryId();
 	List<BoardCategory> selectAllCategory();
-	void inserNewCategory(IBoardCategoryRepository boardCategory);
+	void insertNewCategory(BoardCategory boardCategory);
 	void updateCategory(BoardCategory boardCategory);
 	void deleteCategory(int categoryId);
 }
