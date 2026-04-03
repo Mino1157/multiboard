@@ -6,6 +6,8 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
+import com.example.multiboard.board.model.BoardUploadFile;
+
 @Mapper
 @Repository
 public interface IBoardRepository {
