@@ -25,6 +25,9 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.multiboard.HomeController;
+import com.example.multiboard.board.model.Board;
+import com.example.multiboard.board.model.BoardCategory;
+import com.example.multiboard.board.model.BoardUploadFile;
 import com.example.multiboard.board.service.IBoardCategoryService;
 import com.example.multiboard.board.service.IBoardService;
 
