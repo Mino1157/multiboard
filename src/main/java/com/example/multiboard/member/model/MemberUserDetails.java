@@ -2,6 +2,7 @@ package com.example.multiboard.member.model;
 
 import java.util.Collection;
 
+import org.springframework.boot.autoconfigure.security.SecurityProperties.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 
