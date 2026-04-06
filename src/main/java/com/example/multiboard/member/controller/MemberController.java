@@ -58,9 +58,6 @@ public class MemberController {
     public String insertMember(@Validated Member member, BindingResult result,
     		HttpSession session, Model model) {
 
-    	String encodedPw = passwordEncoder.encode(member.getPassword());
-    	member.setPassword(encodedPw);
-    	memberService.insertMember(member);
         if (result.hasErrors()) {
             model.addAttribute("member", member);
             return "member/form";
@@ -72,6 +69,8 @@ public class MemberController {
                 model.addAttribute("message", "MEMBER_PW_RE");
                 return "member/form";
             }
+            String encodedPw = passwordEncoder.encode(member.getPassword());
+        	member.setPassword(encodedPw);
             memberService.insertMember(member);
         } catch (DuplicateKeyException e) {
             member.setUserid(null);
@@ -88,33 +87,33 @@ public class MemberController {
     public String login() {
         return "member/login";
     }
-
-    @PostMapping("/member/login")
-    public String login(String userid, String password, HttpSession session, Model model) {
-        Member member = memberService.selectMember(userid);
-        if (member != null) {
-            logger.info(member.toString());
-            String dbPassword = member.getPassword();
-            if (dbPassword.equals(password)) { // 비밀번호 일치
-                session.setMaxInactiveInterval(600); // 세션 타임아웃 10분
-                session.setAttribute("userid", userid);
-                session.setAttribute("name", member.getName());
-                session.setAttribute("email", member.getEmail());
-            } else { // 비밀번호가 다름
-                model.addAttribute("message", "WRONG_PASSWORD");
-            }
-        } else { // 아이디가 없음
-            session.invalidate();
-            model.addAttribute("message", "USER_NOT_FOUND");
-        }
-        return "member/login";
-    }
-
-    @GetMapping("/member/logout")
-    public String logout(HttpSession session, HttpServletRequest request) {
-        session.invalidate();
-        return "home";
-    }
+//
+//    @PostMapping("/member/login")
+//    public String login(String userid, String password, HttpSession session, Model model) {
+//        Member member = memberService.selectMember(userid);
+//        if (member != null) {
+//            logger.info(member.toString());
+//            String dbPassword = member.getPassword();
+//            if (dbPassword.equals(password)) { // 비밀번호 일치
+//                session.setMaxInactiveInterval(600); // 세션 타임아웃 10분
+//                session.setAttribute("userid", userid);
+//                session.setAttribute("name", member.getName());
+//                session.setAttribute("email", member.getEmail());
+//            } else { // 비밀번호가 다름
+//                model.addAttribute("message", "WRONG_PASSWORD");
+//            }
+//        } else { // 아이디가 없음
+//            session.invalidate();
+//            model.addAttribute("message", "USER_NOT_FOUND");
+//        }
+//        return "member/login";
+//    }
+//
+//    @GetMapping("/member/logout")
+//    public String logout(HttpSession session, HttpServletRequest request) {
+//        session.invalidate();
+//        return "home";
+//    }
 
     @GetMapping("/member/update")
     public String updateMember(Model model) {
