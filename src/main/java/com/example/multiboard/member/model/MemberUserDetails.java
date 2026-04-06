@@ -3,6 +3,7 @@ package com.example.multiboard.member.model;
 import java.util.Collection;
 
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.User;
 
 public class MemberUserDetails extends User {
 	
