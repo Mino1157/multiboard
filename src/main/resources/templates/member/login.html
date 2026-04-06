@@ -22,7 +22,7 @@
         </div>
     </div>
     <div class="content">
-        <div sec:authorize="isAnonynous()">
+        <div sec:authorize="isAnonymous()">
             <form th:action="@{/member/login}" method="post" class="form-horizontal">
                 <div class="form-group">
                     <label class="control-label col-sm-2" for="id" th:text="#{MEMBER_ID}">MEMBER ID</label>
