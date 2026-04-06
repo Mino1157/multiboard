@@ -48,12 +48,12 @@ public class WebMvcConfig implements WebMvcConfigurer {
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
 		registry.addInterceptor(localeChangeInterceptor());
-		registry.addInterceptor(loginInterceptor())
-			.addPathPatterns("/file/**")
-			.addPathPatterns("/board/write/**")
-			.addPathPatterns("/board/update/**")
-			.addPathPatterns("/board/reply/**")
-			.addPathPatterns("/board/delete/**");
+//		registry.addInterceptor(loginInterceptor())
+//			.addPathPatterns("/file/**")
+//			.addPathPatterns("/board/write/**")
+//			.addPathPatterns("/board/update/**")
+//			.addPathPatterns("/board/reply/**")
+//			.addPathPatterns("/board/delete/**");
 	}
 
 }
